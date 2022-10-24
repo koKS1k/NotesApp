@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+       <link href="/styles/css/main-page.css" rel="stylesheet" type="text/css" />
+
+        <head>
+            <title>Notes App</title>
+        </head>
+
+       <!-- Заголовок как ссылка на главную страницу -->
+        <header>
+            <div class="header">
+                <a  th:href="@{'/app/main'}" class="header_text"> Notes App </a>
+            </div>
+        </header>
+
+        <body class="body">
+        <!-- Кнопки "ВСЕ ЗАМЕТКИ" и "ДОБАВИТЬ ЗАМЕТКУ" -->
+            <div>
+                <a  th:href="@{'/app/main'}"
+                    class="main_button size_1"> All Notes </a>
+
+                <a  th:href="@{'/app/new'}"
+                    class="main_button size_2"> Add Note </a>
+
+            </div>
+
+            <!-- Кнопка и поле "ПОИСК" -->
+            <div class="input_position1">
+                <form class="inputs form_position_1"
+                      th:action="@{'/app/main/search'}"
+                      th:method="POST">
+
+                      <fieldset class="form-group">
+
+                        <!-- Поле "Что надо искать?" -->
+                        <input type="text"
+                           th:value="${search}"
+                           class="form-control"
+                           name="search"
+                           required="required">
+                      </fieldset>
+
+                      <!-- Кнопка "ПОИСК" -->
+                      <div class="main_button2_position1">
+                            <button type="submit" class="main_button_2">Search</button>
+                      </div>
+                </form>
+            </div>
+
+            <div class="list-type1">
+
+            <!-- Список заметок выводим в цикле шаблонизатора -->
+            <ol>
+                <li class="list-point"
+                    th:each="note : ${notes}">
+                    <a th:href="@{'/app/watch/' + ${note.id}}" th:text="${note.getTitle().isEmpty()} ? ${note.getText().substring(0,40)+'...'} : ${note.getTitle()} "></a>
+                        <form class="inside_button button" th:action="@{'/app/delete/' + ${note.id}}">
+                            <button type="submit" class="btn btn--cancel"> DELETE </button>
+                        </form>
+                </li>
+            </ol>
+
+</div>
+
+
+</body>
+</html>

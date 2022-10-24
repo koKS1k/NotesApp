@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <link href="/styles/css/note.css" rel="stylesheet" type="text/css" />
+
+    <head>
+        <title>Note</title>
+    </head>
+
+    <header>
+        <!-- Заголовок как ссылка на главную страницу -->
+        <div class="header">
+            <a  th:href="@{'/app/main'}" class="header_text"> Notes App </a>
+        </div>
+
+    </header>
+
+    <body class="body">
+       <div>
+
+        <!-- Кнопка НАЗАД -->
+        <a  href="javascript:history.back()"
+            class="main_button_2 size_3"> GO BACK! </a>
+       </div>
+
+       <!-- Заметка -->
+       <div class="note_form">
+
+        <!-- Заголовок -->
+        <div class="title">
+            <span
+            th:text="${note.getTitle()}">
+            </span>
+        </div>
+
+        <!-- Текст -->
+        <div class="text1">
+            <span
+            th:text="${note.getText()}">
+           </span>
+        </div>
+
+           <!-- Кнопка "Редактировать заметку" -->
+           <a  th:href="@{'/app/edit/' + ${note.id}}"
+               class="main_button size_1"> EDIT </a>
+
+           <!-- Кнопка "Удалить заметку" -->
+           <a  th:href="@{'/app/delete/' + ${note.id}}"
+                class="main_button size_2"> DELETE </a>
+
+    </div>
+
+    </body>
+</html>

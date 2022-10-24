@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link href="/styles/css/new-note.css" rel="stylesheet" type="text/css"/> <!-- Импорт CSS -->
+
+<head>
+    <title>New note</title>
+</head>
+
+<!-- Заголовок как ссылка на главную страницу -->
+<header>
+    <div class="header">
+        <a th:href="@{'/app/main'}" class="header_text"> Notes App </a>
+    </div>
+</header>
+
+<body class="body">
+
+<!-- Кнопка назад -->
+<div>
+    <a href="javascript:history.back()"
+       class="main_button_2 size_3"> GO BACK! </a>
+</div>
+
+<!-- Форма редактирования -->
+<div class="note_form">
+
+    <div class="user_form_title">
+        EDIT NOTE
+    </div>
+
+    <!-- Получаем объект Note -->
+    <form class="inputs"
+          th:object="${note}"
+          th:action="@{/app/edit}"
+          th:method="POST">
+
+        <!-- Перекладываем и передаем id -->
+        <input type="hidden" name="id" th:field="*{id}"/>
+
+        <!-- Заголовок -->
+        <fieldset class="form-group">
+            <label>Title:</label>
+            <input type="text"
+                   class="form-control1"
+                   name="title"
+                   maxlength="20"
+                   th:field="*{title}">
+        </fieldset>
+
+        <!-- Текст заметки -->
+        <fieldset class="form-group">
+            <label>Text:</label>
+
+            <textarea class="form-control2"
+                      rows="10"
+                      cols="45"
+                      name="text"
+                      maxlength="224"
+                      required="required"
+                      th:field="*{text}">
+                </textarea>
+        </fieldset>
+
+        <!-- Кнопка ОК -->
+        <div class="button_position">
+            <button type="submit" class="main_button">OK</button>
+        </div>
+
+        <!-- Кнопка отмены -->
+        <a th:href="@{'/app/main'}"
+           class="main_button size_2"> CANCEL </a>
+
+    </form>
+
+
+</div>
+</body>
+</html>
