@@ -20,35 +20,35 @@
 └── src/ 
    └── main/
        ├──java/                                   
-          └──com/                                 
-             └──example/                         
-                └──notesapp/                      
-                   ├──configurations/             # Каталог классов конфигураций.
-                      ├──MVCconfig.java           # Конфигурация ресурсов (Стили .css).
-                      └──StartConfiguration.java  # Конфигурация перед запуском приложения. Заполняем БД.
-                   ├──controllers/                # Каталог контроллера.
-                      └──NoteController.java      # Контроллер для мапинга запросов.
-                   ├──entities/                   # Сущности. POJO-классы для связи с БД.
-                      └──Note.java                # Класс заметки (Note). 
-                   ├──repositories/               # Репозитории.
-                      └──NoteRepository.java      # Репозиторий для работы с Note в БД.                 
-                   └──services/                   # Сервисы
-                      └──NoteService.java         # Сервис для работы с заметками.
-                   └──NotesappApplication.java    # Основной файл запуска приложения.
+       │   └──com/                                 
+       │     └──example/                         
+       │        └──notesapp/                      
+       │            ├──configurations/              # Каталог классов конфигураций.
+       │            │   ├──MVCconfig.java           # Конфигурация ресурсов (Стили .css).
+       │            │   └──StartConfiguration.java  # Конфигурация перед запуском приложения. Заполняем БД.
+       │            ├──controllers/                 # Каталог контроллера.
+       │            │   └──NoteController.java      # Контроллер для мапинга запросов.
+       │            ├──entities/                    # Сущности. POJO-классы для связи с БД.
+       │            │   └──Note.java                # Класс заметки (Note). 
+       │            ├──repositories/                # Репозитории.
+       │            │   └──NoteRepository.java      # Репозиторий для работы с Note в БД.                 
+       │            ├──services/                    # Сервисы
+       │            │   └──NoteService.java         # Сервис для работы с заметками.
+       │            └──NotesappApplication.java     # Основной файл запуска приложения.
        └──resources/                              
           ├──static/                             
-             └──css/                              # .css стили.
-                ├──error.css                      # Стиль страницы ошибок.
-                ├──main-page.css                  # Стиль главной страницы.
-                ├──new-note.css                   # Стиль страницы создания/редактирования заметки.
-                └──note.css                       # Стиль страницы просмотра заметки.
+          │   └──css/                               # .css стили.
+          │      ├──error.css                       # Стиль страницы ошибок.
+          │      ├──main-page.css                   # Стиль главной страницы.
+          │      ├──new-note.css                    # Стиль страницы создания/редактирования заметки.
+          │      └──note.css                        # Стиль страницы просмотра заметки.
           ├──templates/                           
-             ├──edit-note.html                    # Страница редактирования заметки.
-             ├──error.html                        # Страница ошибки.
-             ├──main-page.html                    # Главная страница.
-             ├──new-note.html                     # Страница создания заметки.
-             └──note.html                         # Страница просмотра заметки.
-          └──application.properties               # Файл свойств приложения.           
+          │   ├──edit-note.html                     # Страница редактирования заметки.
+          │   ├──error.html                         # Страница ошибки.
+          │   ├──main-page.html                     # Главная страница.
+          │   ├──new-note.html                      # Страница создания заметки.
+          │   └──note.html                          # Страница просмотра заметки.
+          └──application.properties                 # Файл свойств приложения.           
 
 ```
 
